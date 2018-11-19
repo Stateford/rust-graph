@@ -8,12 +8,12 @@ pub struct Vector2f {
     pub y: f64
 }
 
-trait Size {
+pub trait Size {
     fn new(x: f64, y:f64) -> Self;
     fn resize(&mut self, x: f64, y:f64);
 }
 
-trait Position {
+pub trait Position {
     fn new(x: f64, y:f64) -> Self;
     fn move_position(&mut self, x: f64, y:f64);
 }

@@ -33,7 +33,7 @@ impl Point {
     // #TODO: add rendering/drawing
 }
 
-struct GraphPoints {
+pub struct GraphPoints {
     points: Vec<Point>,
     size: i32,
     max_size: i32,
@@ -42,7 +42,7 @@ struct GraphPoints {
 
 impl GraphPoints {
 
-    fn new(size: Vector2f) -> Self {
+    pub fn new(size: Vector2f) -> Self {
         return GraphPoints {
             points: Vec::new(),
             size: 0,
@@ -51,15 +51,18 @@ impl GraphPoints {
         }
     }
 
-    fn set_max_size(&mut self, size: i32) {
+    pub fn set_max_size(&mut self, size: i32) {
         self.max_size = size;
     }
 
-    fn add_point(&mut self, value: f64) {
+    pub fn len(&self) -> i32 {
+        return self.size.clone();
+    }
+
+    pub fn add_point(&mut self, value: f64) {
         
         if self.size >= self.max_size {
-            let y = &self.points.clone()[2..];
-            self.points.clone_from_slice(y);
+            self.points.drain(0..0);
         }
 
         let mut point = Point::new();
